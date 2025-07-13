@@ -13,7 +13,7 @@ filebeat.inputs:
           overwrite_keys: true
 
 output.logstash:
-  hosts: ["3.224.21.227:5044"]  # Replace with your EC2 IP or Elastic IP
+  hosts: ["3.224.21.227:5044"]  # EC2 IP or Elastic IP
 
 setup.kibana:
   host: "http://localhost:5601"
