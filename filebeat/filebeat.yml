@@ -1,0 +1,20 @@
+# Add a comment at the top
+# Updated via GitHub Actions
+
+filebeat.inputs:
+  - type: container
+    paths:
+      - /var/lib/docker/containers/*/*.log
+    processors:
+      - add_docker_metadata: ~
+      - decode_json_fields:
+          fields: ["message"]
+          target: ""
+          overwrite_keys: true
+
+output.logstash:
+  hosts: ["3.224.21.227:5044"]  # Replace with your EC2 IP or Elastic IP
+
+setup.kibana:
+  host: "http://localhost:5601"
+
