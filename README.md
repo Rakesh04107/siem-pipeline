@@ -4,7 +4,7 @@ This project builds a cloud-native SIEM pipeline on AWS using the ELK Stack (Ela
 
 ---
 
-## 📦 What It Does
+## What it Does  
 
 - **Log Ingestion**: Filebeat collects container logs from EC2 instances and forwards them to Logstash.
 - **Log Processing**: Logstash parses, enriches, and sends structured logs to Elasticsearch.
@@ -15,7 +15,7 @@ This project builds a cloud-native SIEM pipeline on AWS using the ELK Stack (Ela
 
 ---
 
-## 🚀 CI/CD Pipeline
+## CI/CD Pipline
 
 1. **Trigger**: Any change in `filebeat.yml` triggers GitHub Actions.
 2. **Deploy**: The config is securely copied to the EC2 instance.
@@ -28,7 +28,7 @@ Secrets used:
 
 ---
 
-## 🔔 Alert Flow
+## Alert Flow
 
 1. Detection rule in Kibana matches suspicious pattern.
 2. Action triggers a webhook (Python script).
@@ -36,7 +36,7 @@ Secrets used:
 
 ---
 
-## 🧪 How to Test
+## How to Test
 
 1. Push a change in `filebeat.yml`
 2. GitHub Action deploys it automatically
