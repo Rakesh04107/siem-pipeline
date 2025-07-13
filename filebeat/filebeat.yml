@@ -1,5 +1,6 @@
 # Add a comment at the top
 # Updated via GitHub Actions
+# New update via GitHub Actions
 
 filebeat.inputs:
   - type: container
