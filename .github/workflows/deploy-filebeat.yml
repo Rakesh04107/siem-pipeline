@@ -1,0 +1,42 @@
+name: Deploy Filebeat Config to EC2
+
+on:
+  push:
+    paths:
+      - 'filebeat/**'
+      - 'scripts/**'
+      - '.github/workflows/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Copy Filebeat Config to EC2
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          source: "filebeat/filebeat.yml"
+          target: "/home/ubuntu/filebeat-docker/"
+
+      - name: Restart Filebeat Container
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            docker rm -f filebeat || true
+            docker run -d \
+              --name=filebeat \
+              --user=root \
+              --volume="/home/ubuntu/filebeat-docker/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro" \
+              --volume="/var/lib/docker/containers:/var/lib/docker/containers:ro" \
+              --volume="/var/run/docker.sock:/var/run/docker.sock" \
+              docker.elastic.co/beats/filebeat:7.17.9
+
