@@ -45,7 +45,7 @@ Secrets used:
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 <pre> ## 📂 Project Structure ``` siem-pipeline/ ├── .github/workflows/ │ └── filebeat-deploy.yml ├── filebeat-docker/ │ └── filebeat.yml ├── scripts/ │ └── alert_slack.py ├── README.md ``` </pre>
 
@@ -53,7 +53,7 @@ Secrets used:
 
 ---
 
-## 🙌 Author
+##  Author
 
 **Rakesh Singh**  
 [GitHub](https://github.com/Rakesh04107) | [LinkedIn](https://www.linkedin.com/in/rakesh-singh-0113a1186/) | [Portfolio](https://rakeshinfo.xyz)
