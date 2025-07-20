@@ -3,7 +3,7 @@
 import requests
 
 # ✅ Replace this with the new working Webhook URL
-SLACK_WEBHOOK_URL = "https://hooks.slack.com/services/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"
+SLACK_WEBHOOK_URL = "https://hooks.slack.com/services/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"
 
 def send_slack_alert(message):
     payload = {"text": f":rotating_light: *SIEM Alert:* {message}"}
