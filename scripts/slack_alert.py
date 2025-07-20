@@ -2,7 +2,8 @@
 
 import requests
 
-SLACK_WEBHOOK_URL = "https://hooks.slack.com/services/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"  # Replace with your webhook
+# ✅ Replace this with the new working Webhook URL
+SLACK_WEBHOOK_URL = "https://hooks.slack.com/services/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"
 
 def send_slack_alert(message):
     payload = {"text": f":rotating_light: *SIEM Alert:* {message}"}
@@ -11,7 +12,7 @@ def send_slack_alert(message):
     if response.status_code == 200:
         print("✅ Alert sent to Slack.")
     else:
-        print(f"❌ Failed: {response.status_code}, {response.text}")
+        print(f"❌ Slack alert failed: {response.status_code}, {response.text}")
 
 if __name__ == "__main__":
     send_slack_alert("🚨 Suspicious activity detected in log-generator container.")
