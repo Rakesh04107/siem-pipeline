@@ -1,9 +1,13 @@
 # scripts/slack_alert.py
 
+import os
 import requests
+from dotenv import load_dotenv
 
-# ✅ Replace this with the new working Webhook URL
-SLACK_WEBHOOK_URL = "https://hooks.slack.com/services/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"
+# Load environment variables from .env file
+load_dotenv()
+
+SLACK_WEBHOOK_URL = os.getenv("SLACK_WEBHOOK_URL")
 
 def send_slack_alert(message):
     payload = {"text": f":rotating_light: *SIEM Alert:* {message}"}
@@ -16,4 +20,6 @@ def send_slack_alert(message):
 
 if __name__ == "__main__":
     send_slack_alert("🚨 Suspicious activity detected in log-generator container.")
+
+
 
