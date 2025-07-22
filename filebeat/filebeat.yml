@@ -19,3 +19,4 @@ output.logstash:
 setup.kibana:
   host: "http://localhost:5601"
 
+
